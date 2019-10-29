@@ -1,0 +1,43 @@
+<div class="container py-4">
+  <form class="form-signin" [formGroup]="loginForm" (submit)="loginHandler()">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input
+      type="email"
+      id="inputEmail"
+      class="form-control"
+      placeholder="Email"
+      required
+      autofocus
+      formControlName="email"
+    />
+    <span class="text-danger" *ngIf="isValid('email')">
+      Email is invalid.
+    </span>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input
+      type="password"
+      id="inputPassword"
+      class="form-control"
+      placeholder="Password"
+      required
+      formControlName="password"
+    />
+    <span class="text-danger" *ngIf="isValid('password')">
+      Password is required.
+    </span>
+    <div class="checkbox mb-3">
+      <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Sign in
+    </button>
+    <button
+      class="btn btn-lg btn-primary btn-block"
+      type="button"
+      (click)="loginToRegsiter()"
+    >
+      Register
+    </button>
+  </form>
+</div>
